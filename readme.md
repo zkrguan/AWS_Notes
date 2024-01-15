@@ -112,3 +112,81 @@ Identity toekn (openID):
 2. Like a Driver's license, it has claims about who I am.
 
 **AWS Amplify does have a node package so you don't have to code it all by yourself.**
+
+### AWS Cognito Setting Up Flow
+
+1. Create and config User Pool Setup:
+
+User pool is the core feature which allows the development team pass the dirty work on authentication and authorization to AWS.
+
+![image](https://github.com/zkrguan/AWS_Notes/assets/97544709/d34c5b74-47f7-42cc-941c-60a6c642f724)
+
+
+2. Config Security requrirements:
+
+default is good with me but it depends on your business logics.
+
+![image](https://github.com/zkrguan/AWS_Notes/assets/97544709/ce28f42c-21fe-42f9-8225-8393d74c10c1)'
+
+MFA is an option too. 
+
+![image](https://github.com/zkrguan/AWS_Notes/assets/97544709/f5bcf61d-0c84-4a91-bc16-a38707b4166b)
+
+Pword recovery can be configured too
+
+![image](https://github.com/zkrguan/AWS_Notes/assets/97544709/46b801f0-6ac6-4217-a881-f3c243b7b24c)
+
+3. Configuring sign-up experience
+
+In most enterprise applications, the users cannot register the account by themselves. ( NYX console remember ) 
+
+![image](https://github.com/zkrguan/AWS_Notes/assets/97544709/b5731107-7b12-4e85-8bab-83e31e0856d7)
+
+After registeration, the user needs to be verified too. 
+
+![image](https://github.com/zkrguan/AWS_Notes/assets/97544709/b9ad6a0b-da65-447a-bf64-30765e639e89)
+
+Also you can config what to keep in the AWS cognito service. But the more you ask, the more responsibilities you must carry. 
+
+![image](https://github.com/zkrguan/AWS_Notes/assets/97544709/0f3785df-2371-4d3b-b17e-8aa0b5ffb571)
+
+You can customize the attribute if you like 
+
+![image](https://github.com/zkrguan/AWS_Notes/assets/97544709/db390fc9-a099-4b35-9871-a49ce42d173f)
+
+
+4. Configure how the message will be delivered
+
+Amazon does have its own simple email service for adding email features to apps. But in the production, the company domain needs to be added into the email. 
+
+![image](https://github.com/zkrguan/AWS_Notes/assets/97544709/6bc0cc76-c4b1-438d-8467-dac6fa3a66cf)
+
+
+5. Integrate the app
+
+The pool needs a name
+
+![image](https://github.com/zkrguan/AWS_Notes/assets/97544709/3bc04149-082c-4027-a900-1fac7ef1aa2f)
+
+The Cognito will create and host a login page and API for the developers if you choose yes. So you don't have to code it yourself. 
+
+![image](https://github.com/zkrguan/AWS_Notes/assets/97544709/425f6014-be5d-4148-b8b0-bb2dde0dafe8)
+
+Also, you can customize the domain name for the users to login and register on the Cognito hosted app. 
+
+![image](https://github.com/zkrguan/AWS_Notes/assets/97544709/6fc18e76-e1b0-4429-b40d-dee89307a306)
+
+Configure the app type of client you are building. 
+
+A. Normally the app is PUBLIC CLIENT. Public Frontend connects to the Backend.If we are building an server side application, then it is the CONFIDENTIAL CLIENT. 
+
+B. Client secrete can be stored in the browser to use to get authN with the server
+
+C. Callback URL is after authenticated, where should the user be redirected to. 
+
+![image](https://github.com/zkrguan/AWS_Notes/assets/97544709/5269da49-2edb-454c-8d04-76698b136748)
+
+6 Review and Create 
+
+Then you are done. 
+
